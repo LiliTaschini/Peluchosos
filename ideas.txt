@@ -1,0 +1,2 @@
+- confirmar compra -  actualice el stock (80% falta actualizar cards)
+- carteles para Pocas unidades (1 o 2) y Agotado (0)

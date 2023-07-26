@@ -1,0 +1,11 @@
+He trabajado en el marco de Metodologías Ágiles, incluyendo Scrum y Kanban, así como en la gestión de proyectos utilizando herramientas como Jira y repositorios de control de versiones como Github y Bitbucket. Además, poseo habilidades avanzadas en el manejo de terminales, tanto en entornos Linux como en CMD, y tengo experiencia en el uso de Git para el control de versiones.
+ También cuento con amplia experiencia en el desarrollo y despliegue de aplicaciones utilizando tecnologías como Firebase y Firebase Cloud.
+Mi experiencia se enfoca principalmente en el frontend, donde tengo un fuerte dominio de HTML, CSS y Bootstrap para crear interfaces web atractivas y responsivas. Además, tengo un sólido conocimiento y experiencia en el desarrollo de aplicaciones interactivas utilizando JavaScript y el framework Vue.js. Además, tengo experiencia en la administración y consulta de bases de datos SQL, lo que me permite manejar eficientemente el almacenamiento y acceso de datos en aplicaciones web.
+Mi experiencia abarca tanto el frontend como el backend. En el entorno PHP, he trabajado con frameworks como Symfony y Laravel, utilizando Twig como motor de plantillas y Doctrine como ORM. Estoy familiarizado con el patrón de diseño MVC y tengo experiencia en el desarrollo de aplicaciones robustas y escalables en este entorno.
+Además, en el entorno Java, tengo conocimientos sólidos en programación orientada a objetos (POO), el uso de colecciones de datos (Collections) y el acceso a bases de datos mediante JDBC y JPA. He desarrollado aplicaciones backend en Java, siguiendo buenas prácticas de diseño y optimización.
+En resumen, cuento con una amplia gama de habilidades que abarcan desde el desarrollo frontend hasta el backend, con experiencia en PHP (Symfony, Laravel, Twig, Doctrine) y Java (POO, Collections, JDBC, JPA).
+
+
+Bootstrap, Bitbucket, uso de terminales (CMD, Linux), conocimientos técnicos en distintos navegadores, paquete office, mail, botmaker, drive, plataformas de reuniones virtuales (Zoom, Meets, Microsoft Teams), plataformas de chat basadas en canales y diseñadas para equipos como Discord o Slack, conocimientos en Metodologías Ágiles (Scrum, Kanban), ChatGPT, Canva, Ticketeras, aplicaciones de escritorio remoto como anydesk o Teams Viewer
+
+

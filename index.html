@@ -18,21 +18,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- ANIMATE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Peluchosos</title>
 </head>
 
-<body>
+<body id="body">
     <header>
         <nav class="nav">
             <div class="icono">
-            <div class="aleta"></div>
-            <img src="./img/icon3.png" alt="logo" class="icono-img">
-            <div class="aleta-izq"></div>
+                <div class="aleta"></div>
+                <img src="./img/icon3.png" alt="logo" class="icono-img">
+                <div class="aleta-izq"></div>
             </div>
-            <div id="carrito">
-            </div>
-            <lord-icon src="https://cdn.lordicon.com/ggihhudh.json" class="lord-icon" trigger="click"
-                style="width:80px;height:80px"></lord-icon>
+            <button class="lord-icon"><lord-icon src="https://cdn.lordicon.com/ggihhudh.json" trigger="click"
+                    style="width:80px;height:80px"></lord-icon><span id="contadorCarrito">0</span></button>
         </nav>
     </header>
 
@@ -42,9 +42,15 @@
             <p>ENCUENTRA EL COMPAÑERO PERFECTO PARA TÍ</p>
             <input type="text" placeholder="¿Qué peluche buscas?" id="buscador">
             <div class="info">
-            <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt="" ><div>Tenemos peluches de todos los tipos, medidas y colores.</div></div>
-            <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt=""><div>Realizamos envíos a todo el país.</div></div>
-            <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt=""><div>Aceptamos todos los medios de pago</div></div>
+                <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt="">
+                    <div>Tenemos peluches de todos los tipos, medidas y colores.</div>
+                </div>
+                <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt="">
+                    <div>Realizamos envíos a todo el país.</div>
+                </div>
+                <div class="p-positions"> <img class="icono-portada" src="./img/favorito.png" alt="">
+                    <div>Aceptamos todos los medios de pago</div>
+                </div>
             </div>
         </div>
     </div>
@@ -56,7 +62,19 @@
 
         </div>
     </div>
-    <script src="./odp.js"></script>
+    <div id="contenedor-carro">
+        <div class="modal-carrito">
+            <h3>CARRITO</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito"></div>
+            <div class="botones-carro">
+                <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+                <button id="vaciar-carrito">Vaciar carrito</button>
+                <button id="confirmar">Confirmar Compra</button>
+            </div>
+        </div>
+    </div>
+    <script src="./op.js"></script>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="https://kit.fontawesome.com/a27c27f30d.js" crossorigin="anonymous"></script>
 </body>

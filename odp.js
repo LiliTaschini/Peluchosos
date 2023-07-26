@@ -1,4 +1,3 @@
-
 const cards = document.querySelector(".cards");
 const buscador = document.querySelector("#buscador");
 const icono = document.querySelector(".lord-icon");
@@ -6,7 +5,9 @@ let filtrados = [];
 let carroCompra = [];
 let x = true;
 let bot = false;
-let cant = 0
+let cantidadCarro = 1;
+
+// ARRAY CON STOCK
 const stock = [
   {
     id: 1,
@@ -110,7 +111,9 @@ const stock = [
   },
 ];
 
+// LLAMAR FUNCIÓN DE CREACIÓN DE TARJETAS
 crearTarjetas();
+// ESCUCHAR BUSCADOR
 buscador.addEventListener("input", busqueda);
 
 function busqueda(e) {
@@ -123,7 +126,7 @@ function busqueda(e) {
   crearTarjetas();
 }
 
-// FILTRADO POR BÚSQUEDA Y MOSTRAR TARJETAS
+// 1º IF MUESTRA TARJETAS 2º MUESTRA FILTRADOS
 function crearTarjetas() {
   if (x === true) {
     cards.innerHTML = "";
@@ -137,14 +140,15 @@ function crearTarjetas() {
               <p>Cantidad: ${producto.cantidad}</p>
               <p>Precio: ${"$" + producto.precio}</p>
              </div>
-             <button class='agregar' data-id="${producto.id}">AGREGAR AL CARRITO</button>
+             <button class='agregar' data-id="${
+               producto.id
+             }">AGREGAR AL CARRITO</button>
           `;
       cards.appendChild(card);
       card.querySelector("button").addEventListener("click", (e) => {
-        cant =+ 1;
         const id = e.target.getAttribute("data-id");
-        agregarAlCarrito(parseInt(id), cant);
-      })
+        agregarAlCarrito(parseInt(id));
+      });
     });
   } else {
     cards.innerHTML = "";
@@ -159,47 +163,81 @@ function crearTarjetas() {
               <p>Cantidad: ${producto.cantidad}</p>
               <p>Precio: ${"$" + producto.precio}</p>
              </div>
-             <button class='agregar' data-id="${producto.id}">AGREGAR AL CARRITO</button>
+             <button class='agregar' data-id="${
+               producto.id
+             }">AGREGAR AL CARRITO</button>
           `;
       cards.appendChild(card);
       card.querySelector("button").addEventListener("click", (e) => {
-        cant =+ 1;
         const id = e.target.getAttribute("data-id");
-        agregarAlCarrito(parseInt(id), cant);
-      })
+        agregarAlCarrito(parseInt(id));
+      });
     });
   }
 
-  function agregarAlCarrito(id, cant) {
-    const carrito = document.querySelector("#carrito");
+  // BUSCA POR ID EN EL STOCK Y LO MUESTRA EN EL CARRITO
+  function agregarAlCarrito(id) {
     const producto = stock.find((p) => p.id === id);
-    carroCompra.push(producto)
-    const contenido = document.createElement("div");
-    contenido.className = "contenido-carrito";
-    contenido.innerHTML += `
+    let encontrado = false;
+
+    // Buscar si ya existe el producto en el carrito
+    for (let i = 0; i < carroCompra.length; i++) {
+      if (carroCompra[i].id === id) {
+        encontrado = true;
+        break;
+      }
+      encontrado = false;
+      console.log(carroCompra);
+    }
+
+    if (encontrado) {
+      // si ya existe el producto en el carrito actualizamos cantidad
+        const compras = carroCompra.map(p =>{ 
+        if(p.id === id && p.cant <= p.cantidad) {
+          p.cantidad --;
+          p.cant ++;
+          return p;
+        } else {
+          return p;
+        }
+      })
+      carroCompra = [...compras];
+    } else {
+      // sino lo agregamos
+      carroCompra.push({ id: id, cant: cantidadCarro, ...producto });
+      if (producto.cant <= producto.cantidad) {
+        producto.cantidad --;
+        producto.cant ++;
+      }
+      console.log(producto);
+      console.log(carroCompra);
+      
+
+      const carrito = document.querySelector("#carrito");
+      const contenido = document.createElement("div");
+      contenido.className = "contenido-carrito";
+      contenido.innerHTML += `
              <img src="${producto.imagen}" alt="" >
              <p class="titulos">${producto.nombre} -</p>
              <div class="cards-info">
-              <p>Cantidad: ${cant}</p>
+              <p>Cantidad: ${producto.cantidad}</p>
               <p>Precio: ${"$" + producto.precio}</p>
              </div>
           `;
       carrito.appendChild(contenido);
-
+    }
   }
 }
 
-
-//Abre el DIV del carrito de compras
-icono.addEventListener("click", e => {
-const carro = document.querySelector("#carrito");
-const contenido = document.querySelector(".contenido-carrito");
-  if(carro.classList.contains("carrito")){
-    carro.classList.remove("carrito")
-    carro.classList.add("cont") 
-      } else {
-    carro.classList.add("carrito")
-    carro.classList.remove("cont")
-    
+//Abre y cierra el DIV del carrito de compras
+icono.addEventListener("click", (e) => {
+  const carro = document.querySelector("#carrito");
+  const contenido = document.querySelector(".contenido-carrito");
+  if (carro.classList.contains("carrito")) {
+    carro.classList.remove("carrito");
+    carro.classList.add("cont");
+  } else {
+    carro.classList.add("carrito");
+    carro.classList.remove("cont");
   }
-})
+});

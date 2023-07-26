@@ -2,16 +2,17 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #D2B585;
+    background-color: black;
 }
 
 .nav {
     margin-top: 15px;
     margin-bottom: 10px;
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
 
 }
+
 .icono {
     position: absolute;
     left: 42%;
@@ -19,12 +20,14 @@ body {
     width: 280px;
     height: 180px;
 }
+
 .icono-img {
     width: 230px;
     height: 130px;
     box-shadow: 3px 3px 3px;
 }
-.aleta-izq{
+
+.aleta-izq {
     position: absolute;
     z-index: -1;
     left: 65%;
@@ -34,16 +37,26 @@ body {
     border-right: 50px solid transparent;
     box-shadow: 0px 3px 0px;
 }
-lord-icon {
+
+.lord-icon {
+    background: none;
+    border: none;
     margin-right: 65px;
     margin-top: 10px;
+    display: flex;
+}
+
+#contadorCarrito {
+    color: #e4deda;
+    font-size: larger;
+    margin-right: 5px;
 }
 
 .portada {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 600px;
+    height: 500px;
 }
 
 .portada .img {
@@ -52,41 +65,46 @@ lord-icon {
     border-radius: 12px 0px 0px 12px;
     border: 1px solid black;
 }
-.p-positions{
+
+.p-positions {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 7px;
     margin-left: 7px;
-}   
-.icono-portada{
+}
+
+.icono-portada {
     width: auto;
     height: 28px;
     margin-right: 4px;
 }
-.info{
+
+.info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
 .buscador {
     border: 1px solid black;
-    /* #BA8869 */
     border-radius: 0px 12px 12px 0px;
-    background-color: #2e1e10;
-    color: #ccc;
+    background-color: #DECEB3;
+    color: rgb(19, 0, 3);
     width: 30%;
-    height: 600px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Patrick Hand', cursive;
 }
-.buscador div{
+
+.buscador div {
     font-size: 23px;
     text-align: center;
 }
+
 .buscador p {
     text-align: center;
     padding-left: 5px;
@@ -131,8 +149,9 @@ lord-icon {
     justify-content: center;
     align-items: center;
 }
-.card:hover{
-    border: 0.5px solid #be2663;
+
+.card:hover {
+    border: 0.5px solid #e00c61;
     transition: all 0.1s;
 }
 
@@ -142,31 +161,35 @@ lord-icon {
     padding: 4px 10px;
     margin: 4px 2px;
     margin-bottom: 5px;
-    background-color: #eccf8f;
+    background-color: #DECEB3;
     width: 200px;
     height: 450px;
 }
 
-.card img{
+.card img {
     width: 200px;
     height: 230px;
 }
-.card .titulos{
+
+.card .titulos {
     text-align: center;
     font-size: 30px;
     margin: 2px;
     font-family: 'Patrick Hand', cursive;
     background-color: #b96c3b;
 }
-.cards-info{
+
+.cards-info {
     display: flex;
     text-align: center;
     font-family: 'Quicksand', sans-serif;
 }
-.card p{
+
+.card p {
     font-size: 20px;
 }
-.card button{
+
+.card button {
     border-radius: 4px;
     background-color: #c0987e;
     color: black;
@@ -181,50 +204,144 @@ lord-icon {
     font-size: 18px;
     text-align: center;
 }
-.card button:hover{
+
+.card button:hover {
     background-color: #ca7540;
     color: #ccc;
     border: 2px solid #e4deda;
     transition: all 0.1s;
 }
-.carrito{
-    transition: all 1s;
-    position: absolute;
-    left: 55%;
-    top: 10%;
-    border-radius: 120px 0 120px 120px;
-    background-color: #ce8a5f;
-    width: 33%;
-    height: 60%;
-    color: black;
-    font-family: 'Patrick Hand', cursive;
+
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-carrito {
+    position: relative;
+    left: 25%;
+    background-color: #c59062;
+    width: 50%;
+    height: 30%;
+    padding: 20px;
+    margin-top: -180%;
+    transition: all .5s;
+    border: 1.5px solid #2e1e10;
+    border-radius: 18px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-active .modal-carrito {
+    margin-top: -85%;
+}
+
+.modal-carrito h3 {
+    color: #2e1e10;
+    padding-bottom: 5px;
     text-align: center;
-    padding: 60px;
-    border: 2px solid #000000;
+    font-family: 'Patrick Hand', cursive;
 }
-.cont{
-    display: none;
+
+.modal-carrito #carritoCerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    background-color: #c59062;
 }
-.contenido-carrito{
+
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+
+.modal-carrito .precioProducto {
+    color: rgb(10, 10, 10);
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+#vaciar-carrito {
+    background-color: #c59062;
+}
+
+#vaciar-carrito:hover {
+    background-color: #6d3512;
+    color: #ccc;
+}
+
+#confirmar {
+    background-color: #c59062;
+}
+
+#confirmar:hover {
+    background-color: #6d3512;
+    color: #ccc;
+}
+
+.botones-carro {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contenido-carrito {
     padding: 10px;
-    display: flex;  
-    
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Patrick Hand', cursive;
 }
-.contenido-carrito img{
+
+.contenido-carrito img {
     width: 70px;
     height: 80px;
     border: 1px solid black;
 }
-.contenido-carrito .titulos{
+
+.contenido-carrito .titulos {
     text-transform: uppercase;
     margin: 15px 15px;
     font-size: 25px;
 }
-.contenido-carrito .cards-info{
+
+.contenido-carrito .cards-info {
     display: flex;
     text-align: start;
     flex-direction: column;
 }
-.contenido-carrito .cards-info p{
+
+.contenido-carrito .cards-info p {
     margin: 5px 12px 1px 12px;
+}
+
+.boton-eliminar {
+    background-color: #c59062;
+    border: none
+}
+
+.boton-eliminar img {
+    margin-right: 15px;
+    border: none;
+    width: 45px;
+    height: 45px;
+}
+
+.mensaje {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    z-index: 1;
+    background-color: #ee5e05;
+    margin: 6px;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #ffffff;
+    border-radius: 6px;
 }
